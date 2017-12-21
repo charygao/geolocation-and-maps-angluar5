@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="newPlacePage()"><ion-icon name="add" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      My First Ionic App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="places.length > 0">
+    <ion-item ion-item *ngFor="let place of places" (click)="openPlaceInMaps(place)">{{place?.title}}</ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar position="bottom">
+    <button ion-button full (click)="deletePlaces()">Delete Places</button>
+  </ion-toolbar>
+</ion-footer>
