@@ -1,0 +1,15 @@
+<!-- Generated template for the ZipUploadComponent component -->
+<ion-content class='zip-dialog'>
+	<label class="center">
+		<div class="center-container">
+			<span class="browseButton">BROWSE</span>
+			<span>{{zipFileName}}</span>
+		</div>
+		<input type="file" value="Upload" accept=".zip" (change)="uploadChange($event)" name="zipFile">
+	</label>
+	<div  class="center">
+		<div class="center-container">
+			LOADING
+		</div>
+	</div>
+</ion-content>

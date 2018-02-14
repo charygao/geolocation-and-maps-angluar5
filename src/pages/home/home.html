@@ -1,21 +1,32 @@
 <ion-header>
   <ion-navbar>
+    
     <ion-buttons end>
       <button ion-button icon-only (click)="newPlacePage()"><ion-icon name="add" ></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>
+    <ion-title [myHidden]="val">
       My First Ionic App
     </ion-title>
+   <!-- <h2 *myIf="true">Underline this bitch</h2>--> <!-- why the star do make it work?????? puzzling -->
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <ion-list *ngIf="places.length > 0">
-    <ion-item ion-item *ngFor="let place of places" (click)="openPlaceInMaps(place)">{{place?.title}}</ion-item>
-  </ion-list>
+<ion-content>
+  <ion-item>
+    <button ion-button full (click)="uploadFile()">Upload</button>
+  </ion-item>
+  <ion-item>
+    <button ion-button full (click)="openEmailPage()">Send Email</button>
+  </ion-item>
+  <ion-item>
+      <button ion-button full (click)="openGoogleMaps()">Maps</button>
+  </ion-item>
 </ion-content>
+
 <ion-footer>
+    <ion-list *ngIf="places.length > 0" >
+        <ion-item ion-item *ngFor="let place of places" (click)="openPlaceInMaps(place)">{{place?.title}}</ion-item>
+      </ion-list>
   <ion-toolbar position="bottom">
     <button ion-button full (click)="deletePlaces()">Delete Places</button>
   </ion-toolbar>

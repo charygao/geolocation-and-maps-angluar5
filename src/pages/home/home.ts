@@ -1,18 +1,29 @@
 import { Component } from '@angular/core';
-import { NavController , ModalController } from 'ionic-angular';
+import { NavController , ModalController  , MenuController } from 'ionic-angular';
 import {NewPlacePage} from '../new-place/new-place';
 import {PlacesService} from '../../app/services/place.services';
 import {PlacePage} from '../place/place';
 import {Place} from '../../model/place.model';
-
+import {MenuComponent} from '../../components/menu/menu';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileUtils } from '../../app/util/utilities';
+import { FileChooser } from '@ionic-native/file-chooser';
+import {FilePath} from '@ionic-native/file-path';
+import { SendEmailComponent } from '../../components/send-email/send-email';
+import { GoogleWaypointsPage } from '../google-waypoints/google-waypoints';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
   public places: Place[] = [];
-  constructor(public navCtrl: NavController , private ps: PlacesService , private modalCtrl: ModalController) {
-
+  public val:boolean;
+  constructor(public menu: MenuController , public navCtrl: NavController , private ps: PlacesService , 
+    private modalCtrl: ModalController , public fileTransfer: FileTransfer , private filePath:FilePath) {
+    this.menu.enable(true);
+    this.val = false;
+    console.log(this.fileTransfer);
+    //console.log()
   }
   //hooks
   ionViewWillEnter(){
@@ -25,6 +36,12 @@ export class HomePage {
   }
   newPlacePage(){
     this.navCtrl.push(NewPlacePage); //navigation concept add the component to render
+  }
+  openEmailPage(){
+    this.navCtrl.push(SendEmailComponent);
+  }
+  openGoogleMaps(){
+    this.navCtrl.push(GoogleWaypointsPage);
   }
 //  openPlaceInMaps(place:{title: string}):void{
     //console.log("Clicked: " , place.title);
@@ -43,5 +60,13 @@ export class HomePage {
             this.places = [];
         });
     }
+  }
+  public uploadFile =()=>{
+      FileUtils.getFileUtilInstance() // this will be initialise once in the Class field section
+      FileUtils.openFileChooser().then(uri=>{
+        this.filePath.resolveNativePath(uri).then(filePath=>{
+          console.log(filePath);
+        }).catch(e=>console.log(e));
+      }).catch(e=>console.log(e));
   }
 }
