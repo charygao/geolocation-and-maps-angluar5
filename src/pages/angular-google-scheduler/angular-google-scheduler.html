@@ -1,0 +1,44 @@
+<!--
+  Generated template for the AngularGoogleSchedulerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>angular-google-scheduler</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ 
+      <dx-button text="Hello world"></dx-button>
+      <div id="sliderContainer">
+      <dx-scheduler
+        [dataSource]="appointmentsData"
+        [views]="views"
+        currentView="day"
+        [currentDate]="currentDate"
+        [startDayHour]="7"
+        [showCurrentTimeIndicator]='showCurrentTimeIndicator'
+        [shadeUntilCurrentTime]='shadeUntilCurrentTime'
+        [height]="500"
+        [width]="800">
+        <dxo-editing [allowAdding]="false"></dxo-editing>
+        <dxi-view
+        name="3 Days"
+        type="day"
+        [intervalCount]="3">
+      </dxi-view>
+      <dxi-view
+      name="Days"
+      type="day"
+      [intervalCount]="1">
+    </dxi-view>
+    
+    </dx-scheduler>
+  </div>
+</ion-content>

@@ -11,6 +11,9 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import {FilePath} from '@ionic-native/file-path';
 import { SendEmailComponent } from '../../components/send-email/send-email';
 import { GoogleWaypointsPage } from '../google-waypoints/google-waypoints';
+import { DayThreeComponent } from '../../components/day-three/day-three';
+import { AngularGoogleSchedulerPage } from '../angular-google-scheduler/angular-google-scheduler';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -18,6 +21,7 @@ import { GoogleWaypointsPage } from '../google-waypoints/google-waypoints';
 export class HomePage {
   public places: Place[] = [];
   public val:boolean;
+  
   constructor(public menu: MenuController , public navCtrl: NavController , private ps: PlacesService , 
     private modalCtrl: ModalController , public fileTransfer: FileTransfer , private filePath:FilePath) {
     this.menu.enable(true);
@@ -42,6 +46,12 @@ export class HomePage {
   }
   openGoogleMaps(){
     this.navCtrl.push(GoogleWaypointsPage);
+  }
+  openDayThree(){
+    this.navCtrl.push(DayThreeComponent);
+  }
+  openAngularScheduler(){
+    this.navCtrl.push(AngularGoogleSchedulerPage);
   }
 //  openPlaceInMaps(place:{title: string}):void{
     //console.log("Clicked: " , place.title);

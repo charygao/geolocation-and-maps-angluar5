@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NewPlacePage } from '../pages/new-place/new-place';
 import { PlacesService } from './services/place.services';
+import { SchedulerService } from './services/scheduler-data-service';
 import {Geolocation} from '@ionic-native/geolocation'; //please put any type of services in the app module , the tutorials sometimes give wrong info
 import {PlacePage} from '../pages/place/place';
 import { AgmCoreModule } from '@agm/core';
@@ -33,6 +34,14 @@ import {
  Marker
 } from '@ionic-native/google-maps';
 import { GoogleWaypointsPage } from '../pages/google-waypoints/google-waypoints';
+import { DayThreeComponent } from '../components/day-three/day-three';
+import {CalendarModule} from 'angular-calendar';
+import { NgbModule , NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';;
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ScheduleModule} from 'primeng/schedule';
+import { AngularGoogleSchedulerPage } from '../pages/angular-google-scheduler/angular-google-scheduler';
+import { DxTemplateModule,DxSchedulerComponent ,DxButtonModule , DevExtremeModule, DxResponsiveBoxModule , DxSchedulerModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -42,13 +51,24 @@ import { GoogleWaypointsPage } from '../pages/google-waypoints/google-waypoints'
     GoogleWaypointsPage,
     PlacePage,
     SendEmailComponent,
-    ZipUploadComponent
+    ZipUploadComponent,
+    DayThreeComponent,
+    AngularGoogleSchedulerPage
 
     //ComponentsModule
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ScheduleModule,
     IonicModule.forRoot(MyApp),
+    CalendarModule.forRoot(),
+    NgbModalModule.forRoot(),
+    DevExtremeModule,
+    DxResponsiveBoxModule,
+    DxButtonModule,
+    DxSchedulerModule,
+    DxTemplateModule,
     IonicStorageModule.forRoot({ //solved the injectable storage issues
       name: '__my-places',
       driverOrder: ['indexeddb', 'sqlite', 'websql']
@@ -66,7 +86,9 @@ import { GoogleWaypointsPage } from '../pages/google-waypoints/google-waypoints'
     NewPlacePage,
     PlacePage,
     SendEmailComponent,
-    GoogleWaypointsPage
+    GoogleWaypointsPage,
+    DayThreeComponent,
+    AngularGoogleSchedulerPage,
 
   ],
   providers: [
@@ -74,6 +96,7 @@ import { GoogleWaypointsPage } from '../pages/google-waypoints/google-waypoints'
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PlacesService,
+    SchedulerService,
     Geolocation,
     FileTransfer,
     FileTransferObject,
@@ -85,3 +108,4 @@ import { GoogleWaypointsPage } from '../pages/google-waypoints/google-waypoints'
   ]
 })
 export class AppModule {}
+platformBrowserDynamic().bootstrapModule(AppModule);

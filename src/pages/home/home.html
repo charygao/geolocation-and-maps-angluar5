@@ -21,8 +21,13 @@
   <ion-item>
       <button ion-button full (click)="openGoogleMaps()">Maps</button>
   </ion-item>
+  <ion-item>
+      <button ion-button full (click)="openDayThree()">PrimeNg Scheduler</button>
+  </ion-item>
+  <ion-item>
+      <button ion-button full (click)="openAngularScheduler()">Angular google Scheduler</button>
+  </ion-item>
 </ion-content>
-
 <ion-footer>
     <ion-list *ngIf="places.length > 0" >
         <ion-item ion-item *ngFor="let place of places" (click)="openPlaceInMaps(place)">{{place?.title}}</ion-item>
