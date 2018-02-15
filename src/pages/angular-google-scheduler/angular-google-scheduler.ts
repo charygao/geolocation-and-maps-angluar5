@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SchedulerService , Appointment} from '../../app/services/scheduler-data-service';
 import {DxSchedulerModule} from 'devextreme-angular';
+import * as $ from 'jquery';
 /**
  * Generated class for the AngularGoogleSchedulerPage page.
  *
- * See https://ionicframework.com/docs/components/#navigation for more info on
+ * See https://ionicframework.com/docs/components/#navigation for more info on https://js.devexpress.com/Documentation/Guide
  * Ionic pages and navigation.
  */
 
@@ -26,6 +27,26 @@ export class AngularGoogleSchedulerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AngularGoogleSchedulerPage');
+    console.log($);
+    $(document).ready(function () {
+      // jQuery methods go here...
+      console.log("JQuery is ready");
+      $(function () {
+        $("#sliderContainer")['0'].ondrag(function(e){
+          console.log(e);
+          e.dxScrollView({
+            useNative: true
+          });
+        });
+        $(function () {
+          $("sliderContainer").dxSlider({
+            min: 0, max: 100,
+            value: 25,
+            step: 10
+          });
+        });
+      });
+    });
   }
 
 }
