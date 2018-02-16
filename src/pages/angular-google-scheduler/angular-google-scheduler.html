@@ -16,8 +16,7 @@
 <ion-content padding>
  
       <dx-button text="Hello world"></dx-button>
-      <div id="sliderContainer">
-      <dx-scheduler
+      <dx-scheduler id="scrollview"
         [dataSource]="appointmentsData"
         [views]="views"
         currentView="day"
@@ -40,5 +39,11 @@
     </dxi-view>
     
     </dx-scheduler>
-  </div>
+  <ion-item>
+      <h1 class="title" style="display:none">
+          {{title}}
+        </h1>
+    <button ion-button full (click)="toggleTitle()"> clickhere</button>
+  </ion-item>
 </ion-content>
+

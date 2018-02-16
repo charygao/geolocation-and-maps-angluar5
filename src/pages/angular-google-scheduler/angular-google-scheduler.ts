@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SchedulerService , Appointment} from '../../app/services/scheduler-data-service';
 import {DxSchedulerModule} from 'devextreme-angular';
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
+declare var jquery:any;
+declare var $ :any;
 /**
  * Generated class for the AngularGoogleSchedulerPage page.
  *
@@ -21,6 +23,7 @@ export class AngularGoogleSchedulerPage {
     daysViewStartDate: Date = new Date(2018, 3, 30);
     showCurrentTimeIndicator = true;
     shadeUntilCurrentTime = true;
+    title:any;
   constructor(public navCtrl: NavController, public navParams: NavParams , private sch: SchedulerService) {
     this.appointmentsData = this.sch.getAppointments(); //dummy data
   }
@@ -28,25 +31,25 @@ export class AngularGoogleSchedulerPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AngularGoogleSchedulerPage');
     console.log($);
+    this.title = "Angular 4 with JQuery";
     $(document).ready(function () {
       // jQuery methods go here...
-      console.log("JQuery is ready");
-      $(function () {
-        $("#sliderContainer")['0'].ondrag(function(e){
-          console.log(e);
-          e.dxScrollView({
-            useNative: true
-          });
-        });
+      var scrollViewWidget;
+      console.log("JQuery is ready", $('#scrollview'));
         $(function () {
-          $("sliderContainer").dxSlider({
-            min: 0, max: 100,
-            value: 25,
-            step: 10
+              scrollViewWidget = $("#scrollview").dxScrollView({
+              scrollByContent: true,
+              scrollByThumb: true,
+              showScrollbar: "onScroll",
+              reachBottomText: "Updating..."
+            }).dxScrollView("instance");
           });
+          console.log(scrollViewWidget)
         });
-      });
-    });
   }
-
+  toggleTitle= ()=>{
+    console.log($);
+    console.log($('title'));
+    $('.title').slideToggle();
+  }
 }
