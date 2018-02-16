@@ -30,7 +30,7 @@ export class AngularGoogleSchedulerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AngularGoogleSchedulerPage');
-    console.log($);
+    console.log($);//push test
     this.title = "Angular 4 with JQuery";
     $(document).ready(function () {
       // jQuery methods go here...
