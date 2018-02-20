@@ -11,12 +11,12 @@ export class Appointment {
 let appointments: Appointment[] = [
     {
         text: "Website Re-Design Plan",
-        startDate: new Date(2018, 4, 22, 9, 30),
-        endDate: new Date(2018, 4, 22, 11, 30)
+        startDate: new Date("2018-4- 22"),
+        endDate: new Date("2018-4-22")
     }, {
         text: "Book Flights to San Fran for Sales Trip",
-        startDate: new Date(2018, 4, 22, 12, 0),
-        endDate: new Date(2018, 4, 22, 13, 0),
+        startDate: new Date(),
+        endDate: new Date(),
         allDay: true
     }, {
         text: "Install New Router in Dev Room",

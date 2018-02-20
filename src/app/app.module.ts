@@ -37,7 +37,7 @@ import { GoogleWaypointsPage } from '../pages/google-waypoints/google-waypoints'
 import { DayThreeComponent } from '../components/day-three/day-three';
 import {CalendarModule} from 'angular-calendar';
 import { NgbModule , NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';;
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScheduleModule} from 'primeng/schedule';
 import { AngularGoogleSchedulerPage } from '../pages/angular-google-scheduler/angular-google-scheduler';

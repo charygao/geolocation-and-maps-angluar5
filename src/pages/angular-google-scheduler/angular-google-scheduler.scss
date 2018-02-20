@@ -1,3 +1,14 @@
 page-angular-google-scheduler {
+    #allow-shading, #show-indicator {
+        height: 36px;
+}
+.options {
+    background-color: rgba(191, 191, 191, 0.15);
+    margin-top: 20px;
+}
+.label, .value {
+    display: inline-block;
+    vertical-align: middle;
+}
 
 }

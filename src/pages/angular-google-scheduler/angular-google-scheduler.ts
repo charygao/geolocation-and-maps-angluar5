@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SchedulerService , Appointment} from '../../app/services/scheduler-data-service';
-import {DxSchedulerModule} from 'devextreme-angular';
+import { DxButtonComponent , DxSchedulerComponent} from 'devextreme-angular';
 //import * as $ from 'jquery';
 declare var jquery:any;
 declare var $ :any;
@@ -18,14 +18,16 @@ declare var $ :any;
   templateUrl: 'angular-google-scheduler.html',
 })
 export class AngularGoogleSchedulerPage {
+  @ViewChild(DxSchedulerComponent) scheduler: DxSchedulerComponent;
   appointmentsData: Appointment[];
-    currentDate: Date = new Date(2018, 4, 23);
-    daysViewStartDate: Date = new Date(2018, 3, 30);
+    currentDate: Date = new Date();
+    //daysViewStartDate: Date = new Date(2018, 3, 30);
     showCurrentTimeIndicator = true;
     shadeUntilCurrentTime = true;
     title:any;
   constructor(public navCtrl: NavController, public navParams: NavParams , private sch: SchedulerService) {
     this.appointmentsData = this.sch.getAppointments(); //dummy data
+    console.log(this.scheduler);
   }
 
   ionViewDidLoad() {
@@ -36,18 +38,22 @@ export class AngularGoogleSchedulerPage {
       // jQuery methods go here...
       var scrollViewWidget;
       console.log("JQuery is ready", $('#scrollview'));
-        $(function () {
+     /*   $(function () {
               scrollViewWidget = $("#scrollview").dxScrollView({
               scrollByContent: true,
               scrollByThumb: true,
               showScrollbar: "onScroll",
               reachBottomText: "Updating..."
             }).dxScrollView("instance");
-          });
+          });*/
           console.log(scrollViewWidget)
         });
   }
-  toggleTitle= ()=>{
+  onContentReady(e) {
+    var currentHour = new Date();
+    e.component.scrollToTime(currentHour.getHours(), currentHour.getMinutes() , new Date());
+}
+  toggleTitle= ()=>{ // JQuery Sucks but have a rich library
     console.log($);
     console.log($('title'));
     $('.title').slideToggle();

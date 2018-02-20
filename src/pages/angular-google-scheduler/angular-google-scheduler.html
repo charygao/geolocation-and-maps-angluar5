@@ -21,11 +21,13 @@
         [views]="views"
         currentView="day"
         [currentDate]="currentDate"
-        [startDayHour]="7"
+        [showAllDayPanel]='true'
         [showCurrentTimeIndicator]='showCurrentTimeIndicator'
         [shadeUntilCurrentTime]='shadeUntilCurrentTime'
         [height]="500"
-        [width]="800">
+        [width]="700"
+        [editing]='false'
+        (onContentReady)='onContentReady($event)'>
         <dxo-editing [allowAdding]="false"></dxo-editing>
         <dxi-view
         name="3 Days"
@@ -37,7 +39,6 @@
       type="day"
       [intervalCount]="1">
     </dxi-view>
-    
     </dx-scheduler>
   <ion-item>
       <h1 class="title" style="display:none">
