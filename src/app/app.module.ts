@@ -41,7 +41,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScheduleModule} from 'primeng/schedule';
 import { AngularGoogleSchedulerPage } from '../pages/angular-google-scheduler/angular-google-scheduler';
-import { DxTemplateModule,DxSchedulerComponent ,DxButtonModule , DevExtremeModule, DxResponsiveBoxModule , DxSchedulerModule } from 'devextreme-angular';
+import { DxTemplateModule,DxSchedulerComponent ,DxButtonModule , DevExtremeModule, DxResponsiveBoxModule , DxSchedulerModule, DxMapModule } from 'devextreme-angular';
+import { DevextremeMapsPage } from '../pages/devextreme-maps/devextreme-maps';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,8 @@ import { DxTemplateModule,DxSchedulerComponent ,DxButtonModule , DevExtremeModul
     SendEmailComponent,
     ZipUploadComponent,
     DayThreeComponent,
-    AngularGoogleSchedulerPage
-
+    AngularGoogleSchedulerPage,
+    DevextremeMapsPage
     //ComponentsModule
   ],
   imports: [
@@ -68,6 +69,7 @@ import { DxTemplateModule,DxSchedulerComponent ,DxButtonModule , DevExtremeModul
     DxResponsiveBoxModule,
     DxButtonModule,
     DxSchedulerModule,
+    DxMapModule,
     DxTemplateModule,
     IonicStorageModule.forRoot({ //solved the injectable storage issues
       name: '__my-places',
@@ -89,6 +91,7 @@ import { DxTemplateModule,DxSchedulerComponent ,DxButtonModule , DevExtremeModul
     GoogleWaypointsPage,
     DayThreeComponent,
     AngularGoogleSchedulerPage,
+    DevextremeMapsPage
 
   ],
   providers: [

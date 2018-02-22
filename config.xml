@@ -91,6 +91,6 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDVhygq8Xpy6h__9Lsi2-Ml2Fd4dYdTVoA" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
     </plugin>
-    <engine name="android" spec="^6.3.0" />
     <allow-navigation href="http://10.0.0.168:8100" />
+    <engine name="android" spec="^6.3.0" />
 </widget>

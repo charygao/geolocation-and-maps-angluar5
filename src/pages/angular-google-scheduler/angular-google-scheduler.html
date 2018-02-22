@@ -26,9 +26,11 @@
         [shadeUntilCurrentTime]='shadeUntilCurrentTime'
         [height]="500"
         [width]="700"
-        [editing]='false'
-        (onContentReady)='onContentReady($event)'>
-        <dxo-editing [allowAdding]="false"></dxo-editing>
+        (onContentReady)='onContentReady($event)'
+        (onAddingAppointment)='onAddingAppointment($event)'
+        (onAppointmentUpdating)='onAppointmentUpdating($event)'
+        (onCellClick)='onCellClick($event)'>
+        <dxo-editing [allowUpdating]="false" [allowAdding]="false"></dxo-editing>
         <dxi-view
         name="3 Days"
         type="day"

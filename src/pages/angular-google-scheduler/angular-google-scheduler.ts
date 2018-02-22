@@ -53,6 +53,16 @@ export class AngularGoogleSchedulerPage {
     var currentHour = new Date();
     e.component.scrollToTime(currentHour.getHours(), currentHour.getMinutes() , new Date());
 }
+onAddingAppointment(e){
+  console.log("Adding Appointments " ,e);
+}
+onAppointmentUpdating(e){
+  console.log("On Appointment Update " ,e);
+}
+onCellClick(e){
+  console.log(e);
+  e.cancel = true;
+}
   toggleTitle= ()=>{ // JQuery Sucks but have a rich library
     console.log($);
     console.log($('title'));

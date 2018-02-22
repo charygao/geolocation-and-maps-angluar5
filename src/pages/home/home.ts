@@ -13,6 +13,7 @@ import { SendEmailComponent } from '../../components/send-email/send-email';
 import { GoogleWaypointsPage } from '../google-waypoints/google-waypoints';
 import { DayThreeComponent } from '../../components/day-three/day-three';
 import { AngularGoogleSchedulerPage } from '../angular-google-scheduler/angular-google-scheduler';
+import { DevextremeMapsPage } from '../devextreme-maps/devextreme-maps';
 
 @Component({
   selector: 'page-home',
@@ -52,6 +53,9 @@ export class HomePage {
   }
   openAngularScheduler(){
     this.navCtrl.push(AngularGoogleSchedulerPage);
+  }
+  openAngularDxMaps(){
+    this.navCtrl.push(DevextremeMapsPage);
   }
 //  openPlaceInMaps(place:{title: string}):void{
     //console.log("Clicked: " , place.title);
