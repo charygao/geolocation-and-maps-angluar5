@@ -8,12 +8,12 @@
 
   <ion-navbar>
     <ion-title>Place</ion-title>
-  </ion-navbar>
+    <ion-input id="fucking-stupid" placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+    </ion-input>  
+    </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
 <agm-map [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [zoomControl]="false"></agm-map>
 <button ion-button (click)="dimissPlaceModal()">Dimiss</button>
-</ion-content>

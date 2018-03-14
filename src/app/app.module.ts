@@ -76,7 +76,8 @@ import { DevextremeMapsPage } from '../pages/devextreme-maps/devextreme-maps';
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }), //<-add this
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDVhygq8Xpy6h__9Lsi2-Ml2Fd4dYdTVoA'
+      apiKey: 'AIzaSyDVhygq8Xpy6h__9Lsi2-Ml2Fd4dYdTVoA',
+      libraries: ["places"]
     }),
     SharedModule
    
